@@ -146,16 +146,16 @@ def record_directory(items, write_directory, fs = 44100):
         else:
             print(loc + ' already exists. Skipping replay...')
             # load first-draft recording
-            # sound = AudioSegment.from_file(loc, format='wav')
+            sound = AudioSegment.from_file(loc, format='wav')
             # sound, fs = sf.read(loc, dtype='float64')  
 
             # TRIM - (optional) - currently assuming the duration of the input audio is sufficient for its recording
             # trim start and end silence
-            # start_trim = remove_leading_silence(sound)
-            # end_trim = remove_leading_silence(sound.reverse())
+            start_trim = remove_leading_silence(sound)
+            end_trim = remove_leading_silence(sound.reverse())
 
-            # output_duration = sound.duration_seconds
-            # trimmed_sound = sound[start_trim:output_duration-end_trim]
+            output_duration = sound.duration_seconds
+            trimmed_sound = sound[start_trim:output_duration-end_trim]
 
             # overwrite first-draft recording
             # sound.export(loc, format='wav')
