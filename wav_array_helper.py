@@ -42,16 +42,16 @@ def create_data_and_label_arrays(audio_dir, csv_dir, segment_len_in_secs):
     input_arr = None
     labels_arr = None
     for file_name in label_array_dict.keys():
-    audio_file = os.path.join(audio_dir, file_name) + ".wav"
-    wav_arr = split_wav_into_segments(audio_file, segment_len_in_secs)
-    labels = label_array_dict[file_name]
-    if first_row:
-        input_arr = wav_arr
-        labels_arr = labels
-        first_row = False
-    else:
-        input_arr = np.append(input_arr, wav_arr, 0)
-        labels_arr = np.append(labels_arr, labels, 0)
+        audio_file = os.path.join(audio_dir, file_name) + ".wav"
+        wav_arr = split_wav_into_segments(audio_file, segment_len_in_secs)
+        labels = label_array_dict[file_name]
+        if first_row:
+            input_arr = wav_arr
+            labels_arr = labels
+            first_row = False
+        else:
+            input_arr = np.append(input_arr, wav_arr, 0)
+            labels_arr = np.append(labels_arr, labels, 0)
     print(input_arr.shape, labels_arr.shape)
     return input_arr, labels_arr
 

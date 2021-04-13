@@ -36,13 +36,13 @@ def annotations_to_csv(annotations_dir, csv_dir, interval_in_ms):
     """
     for file in os.listdir(annotations_dir):
         if file.endswith(".eaf"):
-        print("converting", file, "to csv")
-        csv_name = os.path.join(csv_dir, file[:-4]) + ".csv"
-        file = os.path.join(annotations_dir, file)
-        file_elan = Elan.Eaf(file)
-        annotation_data = file_elan.get_annotation_data_for_tier("engagement_tier")
-        labels_for_annotation = elan_annotation_to_binary(annotation_data, interval_in_ms)
-        np.savetxt(csv_name, labels_for_annotation, delimiter=",")
+            print("converting", file, "to csv")
+            csv_name = os.path.join(csv_dir, file[:-4]) + ".csv"
+            file = os.path.join(annotations_dir, file)
+            file_elan = Elan.Eaf(file)
+            annotation_data = file_elan.get_annotation_data_for_tier("engagement_tier")
+            labels_for_annotation = elan_annotation_to_binary(annotation_data, interval_in_ms)
+            np.savetxt(csv_name, labels_for_annotation, delimiter=",")
 
 def csv_annotations_to_dict(csv_dir):
     """
