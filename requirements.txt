@@ -1,13 +1,13 @@
-!pip3 install essentia
-!sudo apt-get install portaudio19-dev python-pyaudio
-!pip3 install PyAudio
-!pip3 install pyAudioAnalysis
-!pip3 install pydub
-!pip3 install hmmlearn
-!pip3 install simplejson
-!pip3 install pyAudioAnalysis
-!pip3 install eyed3
-!pip3 install resemblyzer
-!pip3 install spectralcluster
-!pip3 install umap-learn
-!pip3 install pympi-ling
+pip3 install essentia
+sudo apt-get install portaudio19-dev python-pyaudio
+pip3 install PyAudio
+pip3 install pyAudioAnalysis
+pip3 install pydub
+pip3 install hmmlearn
+pip3 install simplejson
+pip3 install pyAudioAnalysis
+pip3 install eyed3
+pip3 install resemblyzer
+pip3 install spectralcluster
+pip3 install umap-learn
+pip3 install pympi-ling
