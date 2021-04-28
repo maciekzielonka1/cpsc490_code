@@ -1,61 +1,101 @@
-# Modified from https://medium.com/saarthi-ai/who-spoke-when-build-your-own-speaker-diarization-module-from-scratch-e7d725ee279
-
 from resemblyzer import  preprocess_wav, VoiceEncoder, hparams
-from pathlib import Path
-from spectralcluster import SpectralClusterer
+from sklearn.cluster import SpectralClustering
 import librosa
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+from umap.umap_ import UMAP
+from resemblyzer import VoiceEncoder, preprocess_wav
 
-def generate_embeddings(audio):
-  """
-  Creates embeddings using Resemblyzer's encoder. https://github.com/resemble-ai/Resemblyzer
-  audio - a file path to a .wav file
-  """
-  wav_fpath = Path(audio)
-  wav = preprocess_wav(wav_fpath)
-  encoder = VoiceEncoder("cpu")
-  _, cont_embeds, wav_splits = encoder.embed_utterance(wav, return_partials=True, rate=16)
-  print(cont_embeds.shape)
-  return cont_embeds, wav_splits
+def generate_embeddings(wav_array):
+    """
+    Creates embeddings using Resemblyzer's encoder. https://github.com/resemble-ai/Resemblyzer
+    wav_array: a waveform array that needs to be encoded
+    return - 
+    cont_embeds: embeddings generated 
+    wav_splits: a list containing information of where the partial embeddings start and where they stop
+    """
+    encoder = VoiceEncoder("cpu")
+    _, cont_embeds, wav_splits = encoder.embed_utterance(wav_array, return_partials=True, rate=4)
+    return cont_embeds, wav_splits
 
-def spectral_cluster_predict(cont_embeds):
-  """
-  Perform a spectral clustering on the embeddings
-  cont_embeds - embeddings of preprocessed audio files
-  """
-  clusterer = SpectralClusterer(
-      min_clusters=2,
-      max_clusters=100,
-      p_percentile=0.90,
-      gaussian_blur_sigma=1)
+def spectral_cluster_predict(cont_embeds, n_clusters):
+    """
+    Perform a spectral clustering on the embeddings
+    cont_embeds: embeddings of audio segments
+    n_clusters: number of clusters to generate
+    returns - 
+    labels: labels for each embedding
+    """
+    clusterer = SpectralClustering(n_clusters=n_clusters, assign_labels="discretize", random_state=0)
+    fitting = clusterer.fit(cont_embeds)
+    labels = fitting.labels_
+    return labels
 
-  labels = clusterer.predict(cont_embeds)
-  return labels
+def label_wav_splits(y, wav_splits, labels, sr = 22050):
+    """
+    Create a list marking when labels occur during the wav segment
+    wav_splits: a list containing information of where the partial embeddings start and where they stop
+    labels: labels for each wav_split
+    sr: the sampling rate for the wav file
+    returns - 
+    diarization_dict: a dictionary specifying what each label corresponds to "Child", "Adult", "Silence"
+    labelling: a list of ("Number label", "Label start time", "Label end time", "String Label")
+    """
+    times = [((s.start + s.stop) / 2) / sr for s in wav_splits]
+    labelling = []
+    start_time = 0
+    diarization_dict = {}
+    adult_set = False
+    rms = np.mean(librosa.feature.rms(y))
 
-def create_labelling(labels, wav_splits):
-  """
-  Create a list of labels corresponding to labels and time segments in the format:
-  ('label', start_time, end_time)
-  """
-  times = [((s.start + s.stop) / 2) / hparams.sampling_rate for s in wav_splits]
-  labelling = []
-  start_time = 0
+    for i,split in enumerate(wav_splits):
+        start = split.start
+        end = split.stop
+        mid = (start + end)//2
+        if i>0 and labels[i]!=labels[i-1]:
+            lbl = labels[i-1]
+            if lbl not in diarization_dict.keys():
+                if np.mean(librosa.feature.rms(y[start_time:mid])) < rms*.5:
+                    cls = "Silence"
+                    diarization_dict[lbl] = cls
+                elif not adult_set:
+                    cls = "Adult"
+                    adult_set = True
+                    diarization_dict[lbl] = cls
+                else:
+                    cls = "Child"
+                    diarization_dict[lbl] = cls
+            temp = [str(labels[i-1]),start_time,mid, diarization_dict[lbl]]
+            labelling.append(tuple(temp))
+            start_time = mid
+        if i==len(times)-1:
+            lbl = labels[i-1]
+            temp = [str(labels[i]),start_time,mid, diarization_dict[lbl]]
+            labelling.append(tuple(temp))
+    return diarization_dict, labelling
 
-  for i,time in enumerate(times):
-      if i>0 and labels[i]!=labels[i-1]:
-          temp = [str(labels[i-1]),start_time,time]
-          labelling.append(tuple(temp))
-          start_time = time
-      if i==len(times)-1:
-          temp = [str(labels[i]),start_time,time]
-          labelling.append(tuple(temp))
+def show_plots(cont_embeds, labels):
+    plt.imshow(cont_embeds@cont_embeds.T)
+    projections = create_projections(cont_embeds)
+    plot_embeddings(projections, labels)
 
-  return labelling
+def create_projections(embeds):
+    reducer = UMAP()
+    projs = reducer.fit_transform(embeds)
+    return projs
 
-def wav_file_diarization(audio):
-  """
-  Diarizes an audio file, labelling which speaker is speaking at specific points in the clip
-  """
-  cont_embeds, wav_splits = generate_embeddings(audio)
-  labels = spectral_cluster_predict(cont_embeds)
-  labelling = create_labelling(labels, wav_splits)
-  return labelling
+def plot_embeddings(projs, labels):
+    _, ax = plt.subplots(figsize=(6, 6))
+    colors = ['b', 'r', 'g']
+    print(np.unique(labels))
+    for i, label in enumerate(np.unique(labels)):
+        speaker_projs = projs[label == labels]
+        marker = "o"
+        ax.scatter(*speaker_projs.T, marker=marker, label=label, color=colors[i])
+
+def diarize(y, n_clusters):
+    embeddings, wav_splits = generate_embeddings(y)
+    labels = spectral_cluster(embeddings, n_clusters)
+    diarization_dict, labelling = label_wav_splits(wav_splits, labels)
+    return labelling

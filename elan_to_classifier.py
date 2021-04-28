@@ -77,6 +77,6 @@ def save_arrays_with_labels(audio_path, annotation_dict, csv_dir):
         segment_start = (int)((key_start/1000) * sr)
         segment_end = (int)((key_end/1000) * sr)
         wav_segment = y[segment_start:segment_end]
-        fname = os.path.join(csv_dir, path_leaf(audio_path))[:-4] + key + ".csv"
+        fname = os.path.join(csv_dir, path_leaf(audio_path))[:-4] + "_" + key + ".csv"
         arr = np.append(wav_segment, value)
         np.savetxt(fname, arr, delimiter=",")

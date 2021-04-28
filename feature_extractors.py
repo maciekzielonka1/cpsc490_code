@@ -17,6 +17,7 @@ def extract_f0(y):
 
 def extract_rms(y):
 	rms = librosa.feature.rms(y)
+	rms = np.mean(rms)
 	return np.array([rms])
 
 def extract_zcr(y):
