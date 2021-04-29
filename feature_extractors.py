@@ -162,7 +162,7 @@ def create_all_features_df(csv_dir):
 		print("extracting features for", file)
 		file_path = os.path.join(csv_dir, file)
 		features_df = extract_features_from_csv(file_path)
-		if not features_df.empty:
+		if features_df.empty:
 			continue
 		all_features.append(features_df)
 	return pd.concat(all_features)
