@@ -1,6 +1,13 @@
 import pandas as pd
+import librosa
+import os
+from speaker_diarization import diarize
+from feature_extractors import extract_features
+from helpers import path_leaf
 
-def extract_features_from_diarized_interview(y, diarization_labels):
+N_CLUSTERS = 3
+
+def extract_features_from_diarized_interview(y, audio_name, diarization_labels, clf):
     n_chunks = len(diarization_labels)
     num_silent_chunks = 0
     num_child_chunks = 0
@@ -28,7 +35,7 @@ def extract_features_from_diarized_interview(y, diarization_labels):
             total_child_len += chunk_len
             wav_chunk = y[chunk_start:chunk_end]
             features = extract_features(wav_chunk)
-            label = tree_clf.predict([features])[0]
+            label = clf.predict([features])[0]
             if label == 1:
                 num_engaged_chunks += 1
                 duration_engaged += chunk_len
@@ -48,3 +55,24 @@ def extract_features_from_diarized_interview(y, diarization_labels):
     "total_adult_len": total_adult_len
     }
     return pd.DataFrame(data, index=[0])
+
+def extract_macro_features_from_wav(audio_path, clf):
+    y, sr = librosa.load(audio_path)
+    diarization_labels = diarize(y, N_CLUSTERS)
+    audio_name = path_leaf(audio_path)
+    df = extract_features_from_diarized_interview(y, audio_name, diarization_labels, clf)
+    return df
+
+def extract_macro_features_from_directory(audio_dir, clf):
+    first_file = True
+    df = None
+    for f in os.listdir(audio_dir):
+        print("extracting features for", f)
+        file_path = os.path.join(audio_dir, f)
+        features = extract_macro_features_from_wav(file_path, clf)
+        if first_file:
+            df = features
+            first_file = False
+        else:
+            df = pd.concat(df, features)
+    return df

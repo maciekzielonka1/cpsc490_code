@@ -47,6 +47,7 @@ def label_wav_splits(y, wav_splits, labels, sr = 22050):
     start_time = 0
     diarization_dict = {}
     adult_set = False
+    silence_set = False
     rms = np.mean(librosa.feature.rms(y))
 
     for i,split in enumerate(wav_splits):
@@ -56,9 +57,10 @@ def label_wav_splits(y, wav_splits, labels, sr = 22050):
         if i>0 and labels[i]!=labels[i-1]:
             lbl = labels[i-1]
             if lbl not in diarization_dict.keys():
-                if np.mean(librosa.feature.rms(y[start_time:mid])) < rms*.5:
+                if not silence_set and np.mean(librosa.feature.rms(y[start_time:mid])) < rms*.5:
                     cls = "Silence"
                     diarization_dict[lbl] = cls
+                    silence_set = True
                 elif not adult_set:
                     cls = "Adult"
                     adult_set = True
@@ -96,6 +98,6 @@ def plot_embeddings(projs, labels):
 
 def diarize(y, n_clusters):
     embeddings, wav_splits = generate_embeddings(y)
-    labels = spectral_cluster(embeddings, n_clusters)
-    diarization_dict, labelling = label_wav_splits(wav_splits, labels)
+    labels = spectral_cluster_predict(embeddings, n_clusters)
+    diarization_dict, labelling = label_wav_splits(y, wav_splits, labels)
     return labelling
