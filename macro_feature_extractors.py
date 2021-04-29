@@ -2,7 +2,7 @@ import pandas as pd
 import librosa
 import os
 from speaker_diarization import diarize
-from feature_extractors import extract_features
+from feature_extractors import extract_features_from_chunk
 from helpers import path_leaf
 
 N_CLUSTERS = 3
@@ -34,8 +34,8 @@ def extract_features_from_diarized_interview(y, audio_name, diarization_labels, 
             num_child_chunks += 1
             total_child_len += chunk_len
             wav_chunk = y[chunk_start:chunk_end]
-            features = extract_features(wav_chunk)
-            label = clf.predict([features])[0]
+            features = extract_features_from_chunk(wav_chunk)
+            label = clf.predict(features)[0]
             if label == 1:
                 num_engaged_chunks += 1
                 duration_engaged += chunk_len
@@ -64,15 +64,10 @@ def extract_macro_features_from_wav(audio_path, clf):
     return df
 
 def extract_macro_features_from_directory(audio_dir, clf):
-    first_file = True
-    df = None
+    data_frames = []
     for f in os.listdir(audio_dir):
         print("extracting features for", f)
         file_path = os.path.join(audio_dir, f)
         features = extract_macro_features_from_wav(file_path, clf)
-        if first_file:
-            df = features
-            first_file = False
-        else:
-            df = pd.concat(df, features)
-    return df
+        data_frames.append(features)
+    return pd.concat(data_frames)
