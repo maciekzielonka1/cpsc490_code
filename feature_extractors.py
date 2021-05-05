@@ -6,6 +6,9 @@ from resemblyzer import normalize_volume
 import scipy
 
 def extract_mfccs_df(y, sr = 22050, n_mfccs = 13):
+	"""
+	Extracts `n_mfccs` number of mel frequency coefficients. 
+	"""
 	mfccs = librosa.feature.mfcc(y, n_mfcc=13)
 	mfccs_mean = np.mean(mfccs, axis = 1)
 	mfccs_std = np.std(mfccs, axis=1)
@@ -17,6 +20,9 @@ def extract_mfccs_df(y, sr = 22050, n_mfccs = 13):
 	return mfccs_df
 
 def extract_f0_df(y):
+	"""
+	Extracts the f0 value from the wav chunk
+	"""
 	f_0 = librosa.pyin(y, librosa.note_to_hz('C2'), librosa.note_to_hz('C7'))[0]
 	mean_f_0 = np.nanmean(f_0)
 	if np.isnan(mean_f_0):
@@ -26,6 +32,9 @@ def extract_f0_df(y):
 	return f0_df
 
 def extract_rms_df(y):
+	"""
+	Extracts the Root-Mean-Square value for each frame in y
+	"""
 	rms = librosa.feature.rms(y)
 	rms_mean = np.mean(rms)
 	rms_std = np.std(rms)
@@ -40,6 +49,9 @@ def extract_rms_df(y):
 	return rms_df
 
 def extract_zcr_df(y):
+	"""
+	Extracts the zero crossing rate of y
+	"""
 	zrate = librosa.feature.zero_crossing_rate(y)
 	zrate_mean = np.mean(zrate)
 	zrate_std = np.std(zrate)
@@ -54,6 +66,9 @@ def extract_zcr_df(y):
 	return zrate_df
 
 def extract_chroma_df(y, sr):
+	"""
+	Extracts the Chroma Energy Normalized values of y
+	"""
 	chroma = librosa.feature.chroma_cens(y, sr)
 	chroma_mean = np.mean(chroma, axis = 1)
 	chroma_std = np.std(chroma, axis = 1)
@@ -121,8 +136,6 @@ def extract_features_from_chunk(wav_chunk):
 		of an original ".wav" file
 	return - features: a set of features extracted from the wav_chunk
 	"""
-	# wav_chunk = librosa.resample(wav_chunk, 22050, 16000)
-	# wav_chunk = normalize_volume(wav_chunk, -30)
 	sr = 22050
 	if wav_chunk.shape[0] == 0:
 		return pd.DataFrame()
