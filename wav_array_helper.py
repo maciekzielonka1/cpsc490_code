@@ -1,3 +1,7 @@
+# This module wasn't really used in the final stages of the project, more the earlier stages when 
+# I was trying some things out, but it could be helpful if anyone ever needs to reshape `.wav` files 
+# into segments where each row corresponds to a segment of a desired length
+# 
 # This module will help with wav files by reshaping waveform arrays
 # into np_arrays, in which each row corresponds to a segment of the desired length
 # This module will also create input and output arrays, gathered from different audio files
