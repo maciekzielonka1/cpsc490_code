@@ -1,3 +1,7 @@
+# This module actually wasn't used in the final version of the project, 
+# but could serve useful when you have a lot of audio files in a directory and need to 
+# trim the silence from them and only extract the sections with actual sound above a threshold
+
 from pydub import AudioSegment
 import sys
 import os
