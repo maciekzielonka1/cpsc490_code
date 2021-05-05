@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ANNOTATION_DOCUMENT AUTHOR="" DATE="2021-04-19T23:21:24-05:00"
+    FORMAT="3.0" VERSION="3.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mpi.nl/tools/elan/EAFv3.0.xsd">
+    <HEADER MEDIA_FILE="" TIME_UNITS="milliseconds">
+        <MEDIA_DESCRIPTOR
+            MEDIA_URL="file:///E:/2014 data/INTERVIEWS/P12_S1.wav" MIME_TYPE="audio/x-wav"/>
+        <PROPERTY NAME="URN">urn:nl-mpi-tools-elan-eaf:c52d8b2a-fa1e-432a-b82e-b54bda00f949</PROPERTY>
+        <PROPERTY NAME="lastUsedAnnotationId">65</PROPERTY>
+    </HEADER>
+    <TIME_ORDER>
+        <TIME_SLOT TIME_SLOT_ID="ts1" TIME_VALUE="1173"/>
+        <TIME_SLOT TIME_SLOT_ID="ts2" TIME_VALUE="4111"/>
+        <TIME_SLOT TIME_SLOT_ID="ts3" TIME_VALUE="18717"/>
+        <TIME_SLOT TIME_SLOT_ID="ts4" TIME_VALUE="20458"/>
+        <TIME_SLOT TIME_SLOT_ID="ts5" TIME_VALUE="24762"/>
+        <TIME_SLOT TIME_SLOT_ID="ts6" TIME_VALUE="28696"/>
+        <TIME_SLOT TIME_SLOT_ID="ts7" TIME_VALUE="29419"/>
+        <TIME_SLOT TIME_SLOT_ID="ts8" TIME_VALUE="35172"/>
+        <TIME_SLOT TIME_SLOT_ID="ts9" TIME_VALUE="36618"/>
+        <TIME_SLOT TIME_SLOT_ID="ts10" TIME_VALUE="50828"/>
+        <TIME_SLOT TIME_SLOT_ID="ts11" TIME_VALUE="51460"/>
+        <TIME_SLOT TIME_SLOT_ID="ts12" TIME_VALUE="55258"/>
+        <TIME_SLOT TIME_SLOT_ID="ts13" TIME_VALUE="56550"/>
+        <TIME_SLOT TIME_SLOT_ID="ts14" TIME_VALUE="67814"/>
+        <TIME_SLOT TIME_SLOT_ID="ts15" TIME_VALUE="68199"/>
+        <TIME_SLOT TIME_SLOT_ID="ts16" TIME_VALUE="76329"/>
+        <TIME_SLOT TIME_SLOT_ID="ts17" TIME_VALUE="93662"/>
+        <TIME_SLOT TIME_SLOT_ID="ts18" TIME_VALUE="96028"/>
+        <TIME_SLOT TIME_SLOT_ID="ts19" TIME_VALUE="100681"/>
+        <TIME_SLOT TIME_SLOT_ID="ts20" TIME_VALUE="102336"/>
+        <TIME_SLOT TIME_SLOT_ID="ts21" TIME_VALUE="103252"/>
+        <TIME_SLOT TIME_SLOT_ID="ts22" TIME_VALUE="104495"/>
+        <TIME_SLOT TIME_SLOT_ID="ts23" TIME_VALUE="111459"/>
+        <TIME_SLOT TIME_SLOT_ID="ts24" TIME_VALUE="117359"/>
+        <TIME_SLOT TIME_SLOT_ID="ts25" TIME_VALUE="117764"/>
+        <TIME_SLOT TIME_SLOT_ID="ts26" TIME_VALUE="125091"/>
+        <TIME_SLOT TIME_SLOT_ID="ts27" TIME_VALUE="125499"/>
+        <TIME_SLOT TIME_SLOT_ID="ts28" TIME_VALUE="133703"/>
+        <TIME_SLOT TIME_SLOT_ID="ts29" TIME_VALUE="148591"/>
+        <TIME_SLOT TIME_SLOT_ID="ts30" TIME_VALUE="150577"/>
+        <TIME_SLOT TIME_SLOT_ID="ts31" TIME_VALUE="159696"/>
+        <TIME_SLOT TIME_SLOT_ID="ts32" TIME_VALUE="162422"/>
+        <TIME_SLOT TIME_SLOT_ID="ts33" TIME_VALUE="163018"/>
+        <TIME_SLOT TIME_SLOT_ID="ts34" TIME_VALUE="166132"/>
+        <TIME_SLOT TIME_SLOT_ID="ts35" TIME_VALUE="166843"/>
+        <TIME_SLOT TIME_SLOT_ID="ts36" TIME_VALUE="168337"/>
+        <TIME_SLOT TIME_SLOT_ID="ts37" TIME_VALUE="169864"/>
+        <TIME_SLOT TIME_SLOT_ID="ts38" TIME_VALUE="179979"/>
+        <TIME_SLOT TIME_SLOT_ID="ts39" TIME_VALUE="194458"/>
+        <TIME_SLOT TIME_SLOT_ID="ts40" TIME_VALUE="208738"/>
+        <TIME_SLOT TIME_SLOT_ID="ts41" TIME_VALUE="222578"/>
+        <TIME_SLOT TIME_SLOT_ID="ts42" TIME_VALUE="222996"/>
+        <TIME_SLOT TIME_SLOT_ID="ts43" TIME_VALUE="230468"/>
+        <TIME_SLOT TIME_SLOT_ID="ts44" TIME_VALUE="230861"/>
+        <TIME_SLOT TIME_SLOT_ID="ts45" TIME_VALUE="231945"/>
+        <TIME_SLOT TIME_SLOT_ID="ts46" TIME_VALUE="252241"/>
+        <TIME_SLOT TIME_SLOT_ID="ts47" TIME_VALUE="252876"/>
+        <TIME_SLOT TIME_SLOT_ID="ts48" TIME_VALUE="258196"/>
+        <TIME_SLOT TIME_SLOT_ID="ts49" TIME_VALUE="263838"/>
+        <TIME_SLOT TIME_SLOT_ID="ts50" TIME_VALUE="264475"/>
+        <TIME_SLOT TIME_SLOT_ID="ts51" TIME_VALUE="276374"/>
+        <TIME_SLOT TIME_SLOT_ID="ts52" TIME_VALUE="282426"/>
+        <TIME_SLOT TIME_SLOT_ID="ts53" TIME_VALUE="283828"/>
+        <TIME_SLOT TIME_SLOT_ID="ts54" TIME_VALUE="302791"/>
+        <TIME_SLOT TIME_SLOT_ID="ts55" TIME_VALUE="305195"/>
+        <TIME_SLOT TIME_SLOT_ID="ts56" TIME_VALUE="307732"/>
+        <TIME_SLOT TIME_SLOT_ID="ts57" TIME_VALUE="308398"/>
+        <TIME_SLOT TIME_SLOT_ID="ts58" TIME_VALUE="309745"/>
+        <TIME_SLOT TIME_SLOT_ID="ts59" TIME_VALUE="312128"/>
+        <TIME_SLOT TIME_SLOT_ID="ts60" TIME_VALUE="321937"/>
+        <TIME_SLOT TIME_SLOT_ID="ts61" TIME_VALUE="323209"/>
+        <TIME_SLOT TIME_SLOT_ID="ts62" TIME_VALUE="325768"/>
+        <TIME_SLOT TIME_SLOT_ID="ts63" TIME_VALUE="330275"/>
+        <TIME_SLOT TIME_SLOT_ID="ts64" TIME_VALUE="332445"/>
+        <TIME_SLOT TIME_SLOT_ID="ts65" TIME_VALUE="335488"/>
+        <TIME_SLOT TIME_SLOT_ID="ts66" TIME_VALUE="337558"/>
+        <TIME_SLOT TIME_SLOT_ID="ts67" TIME_VALUE="343759"/>
+        <TIME_SLOT TIME_SLOT_ID="ts68" TIME_VALUE="350352"/>
+        <TIME_SLOT TIME_SLOT_ID="ts69" TIME_VALUE="350912"/>
+        <TIME_SLOT TIME_SLOT_ID="ts70" TIME_VALUE="355217"/>
+        <TIME_SLOT TIME_SLOT_ID="ts71" TIME_VALUE="387655"/>
+        <TIME_SLOT TIME_SLOT_ID="ts72" TIME_VALUE="400778"/>
+        <TIME_SLOT TIME_SLOT_ID="ts73" TIME_VALUE="401248"/>
+        <TIME_SLOT TIME_SLOT_ID="ts74" TIME_VALUE="410790"/>
+        <TIME_SLOT TIME_SLOT_ID="ts75" TIME_VALUE="420204"/>
+        <TIME_SLOT TIME_SLOT_ID="ts76" TIME_VALUE="422252"/>
+        <TIME_SLOT TIME_SLOT_ID="ts77" TIME_VALUE="423718"/>
+        <TIME_SLOT TIME_SLOT_ID="ts78" TIME_VALUE="424632"/>
+        <TIME_SLOT TIME_SLOT_ID="ts79" TIME_VALUE="429279"/>
+        <TIME_SLOT TIME_SLOT_ID="ts80" TIME_VALUE="430049"/>
+        <TIME_SLOT TIME_SLOT_ID="ts81" TIME_VALUE="436201"/>
+        <TIME_SLOT TIME_SLOT_ID="ts82" TIME_VALUE="439304"/>
+        <TIME_SLOT TIME_SLOT_ID="ts83" TIME_VALUE="449434"/>
+        <TIME_SLOT TIME_SLOT_ID="ts84" TIME_VALUE="451011"/>
+        <TIME_SLOT TIME_SLOT_ID="ts85" TIME_VALUE="465581"/>
+        <TIME_SLOT TIME_SLOT_ID="ts86" TIME_VALUE="467448"/>
+        <TIME_SLOT TIME_SLOT_ID="ts87" TIME_VALUE="468203"/>
+        <TIME_SLOT TIME_SLOT_ID="ts88" TIME_VALUE="469628"/>
+        <TIME_SLOT TIME_SLOT_ID="ts89" TIME_VALUE="476740"/>
+        <TIME_SLOT TIME_SLOT_ID="ts90" TIME_VALUE="483735"/>
+        <TIME_SLOT TIME_SLOT_ID="ts91" TIME_VALUE="488616"/>
+        <TIME_SLOT TIME_SLOT_ID="ts92" TIME_VALUE="503579"/>
+        <TIME_SLOT TIME_SLOT_ID="ts93" TIME_VALUE="503936"/>
+        <TIME_SLOT TIME_SLOT_ID="ts94" TIME_VALUE="507747"/>
+        <TIME_SLOT TIME_SLOT_ID="ts95" TIME_VALUE="508223"/>
+        <TIME_SLOT TIME_SLOT_ID="ts96" TIME_VALUE="514995"/>
+        <TIME_SLOT TIME_SLOT_ID="ts97" TIME_VALUE="529092"/>
+        <TIME_SLOT TIME_SLOT_ID="ts98" TIME_VALUE="530019"/>
+        <TIME_SLOT TIME_SLOT_ID="ts99" TIME_VALUE="530845"/>
+        <TIME_SLOT TIME_SLOT_ID="ts100" TIME_VALUE="531722"/>
+        <TIME_SLOT TIME_SLOT_ID="ts101" TIME_VALUE="538073"/>
+        <TIME_SLOT TIME_SLOT_ID="ts102" TIME_VALUE="538849"/>
+        <TIME_SLOT TIME_SLOT_ID="ts103" TIME_VALUE="543456"/>
+        <TIME_SLOT TIME_SLOT_ID="ts104" TIME_VALUE="546961"/>
+        <TIME_SLOT TIME_SLOT_ID="ts105" TIME_VALUE="547937"/>
+        <TIME_SLOT TIME_SLOT_ID="ts106" TIME_VALUE="550253"/>
+        <TIME_SLOT TIME_SLOT_ID="ts107" TIME_VALUE="574062"/>
+        <TIME_SLOT TIME_SLOT_ID="ts108" TIME_VALUE="576758"/>
+        <TIME_SLOT TIME_SLOT_ID="ts109" TIME_VALUE="587995"/>
+        <TIME_SLOT TIME_SLOT_ID="ts110" TIME_VALUE="593946"/>
+        <TIME_SLOT TIME_SLOT_ID="ts111" TIME_VALUE="594549"/>
+        <TIME_SLOT TIME_SLOT_ID="ts112" TIME_VALUE="596640"/>
+        <TIME_SLOT TIME_SLOT_ID="ts113" TIME_VALUE="604755"/>
+        <TIME_SLOT TIME_SLOT_ID="ts114" TIME_VALUE="606446"/>
+        <TIME_SLOT TIME_SLOT_ID="ts115" TIME_VALUE="607509"/>
+        <TIME_SLOT TIME_SLOT_ID="ts116" TIME_VALUE="608965"/>
+        <TIME_SLOT TIME_SLOT_ID="ts117" TIME_VALUE="610171"/>
+        <TIME_SLOT TIME_SLOT_ID="ts118" TIME_VALUE="611722"/>
+        <TIME_SLOT TIME_SLOT_ID="ts119" TIME_VALUE="614300"/>
+        <TIME_SLOT TIME_SLOT_ID="ts120" TIME_VALUE="615520"/>
+        <TIME_SLOT TIME_SLOT_ID="ts121" TIME_VALUE="616916"/>
+        <TIME_SLOT TIME_SLOT_ID="ts122" TIME_VALUE="633225"/>
+        <TIME_SLOT TIME_SLOT_ID="ts123" TIME_VALUE="640656"/>
+        <TIME_SLOT TIME_SLOT_ID="ts124" TIME_VALUE="641862"/>
+        <TIME_SLOT TIME_SLOT_ID="ts125" TIME_VALUE="656626"/>
+        <TIME_SLOT TIME_SLOT_ID="ts126" TIME_VALUE="668572"/>
+        <TIME_SLOT TIME_SLOT_ID="ts127" TIME_VALUE="672992"/>
+        <TIME_SLOT TIME_SLOT_ID="ts128" TIME_VALUE="676749"/>
+        <TIME_SLOT TIME_SLOT_ID="ts129" TIME_VALUE="676995"/>
+        <TIME_SLOT TIME_SLOT_ID="ts130" TIME_VALUE="679923"/>
+    </TIME_ORDER>
+    <TIER DEFAULT_LOCALE="en" LINGUISTIC_TYPE_REF="engagement_tier_type" TIER_ID="engagement_tier">
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a1"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts1" TIME_SLOT_REF2="ts2">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a2"
+                CVE_REF="cveid_e08b1ccb-5bd3-4af2-8f26-173a1700afa1"
+                TIME_SLOT_REF1="ts3" TIME_SLOT_REF2="ts4">
+                <ANNOTATION_VALUE>Disengaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a3"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts5" TIME_SLOT_REF2="ts6">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a4"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts7" TIME_SLOT_REF2="ts8">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a5"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts9" TIME_SLOT_REF2="ts10">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a6"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts11" TIME_SLOT_REF2="ts12">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a7"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts13" TIME_SLOT_REF2="ts14">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a8"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts15" TIME_SLOT_REF2="ts16">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a9"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts17" TIME_SLOT_REF2="ts18">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a10"
+                CVE_REF="cveid_e08b1ccb-5bd3-4af2-8f26-173a1700afa1"
+                TIME_SLOT_REF1="ts19" TIME_SLOT_REF2="ts20">
+                <ANNOTATION_VALUE>Disengaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a11"
+                CVE_REF="cveid_e08b1ccb-5bd3-4af2-8f26-173a1700afa1"
+                TIME_SLOT_REF1="ts21" TIME_SLOT_REF2="ts22">
+                <ANNOTATION_VALUE>Disengaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a12"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts23" TIME_SLOT_REF2="ts24">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a13"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts25" TIME_SLOT_REF2="ts26">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a14"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts27" TIME_SLOT_REF2="ts28">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a15"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts29" TIME_SLOT_REF2="ts30">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a16"
+                CVE_REF="cveid_e08b1ccb-5bd3-4af2-8f26-173a1700afa1"
+                TIME_SLOT_REF1="ts31" TIME_SLOT_REF2="ts32">
+                <ANNOTATION_VALUE>Disengaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a17"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts33" TIME_SLOT_REF2="ts34">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a18"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts35" TIME_SLOT_REF2="ts36">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a19"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts37" TIME_SLOT_REF2="ts38">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a20"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts39" TIME_SLOT_REF2="ts40">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a21"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts41" TIME_SLOT_REF2="ts42">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a22"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts43" TIME_SLOT_REF2="ts44">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a23"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts45" TIME_SLOT_REF2="ts46">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a24"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts47" TIME_SLOT_REF2="ts48">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a25"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts49" TIME_SLOT_REF2="ts50">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a26"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts51" TIME_SLOT_REF2="ts52">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a27"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts53" TIME_SLOT_REF2="ts54">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a28"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts55" TIME_SLOT_REF2="ts56">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a29"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts57" TIME_SLOT_REF2="ts58">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a30"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts59" TIME_SLOT_REF2="ts60">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a31"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts61" TIME_SLOT_REF2="ts62">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a32"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts63" TIME_SLOT_REF2="ts64">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a33"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts65" TIME_SLOT_REF2="ts66">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a34"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts67" TIME_SLOT_REF2="ts68">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a35"
+                CVE_REF="cveid_e08b1ccb-5bd3-4af2-8f26-173a1700afa1"
+                TIME_SLOT_REF1="ts69" TIME_SLOT_REF2="ts70">
+                <ANNOTATION_VALUE>Disengaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a36"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts71" TIME_SLOT_REF2="ts72">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a37"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts73" TIME_SLOT_REF2="ts74">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a38"
+                CVE_REF="cveid_e08b1ccb-5bd3-4af2-8f26-173a1700afa1"
+                TIME_SLOT_REF1="ts75" TIME_SLOT_REF2="ts76">
+                <ANNOTATION_VALUE>Disengaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a39"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts77" TIME_SLOT_REF2="ts78">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a40"
+                CVE_REF="cveid_e08b1ccb-5bd3-4af2-8f26-173a1700afa1"
+                TIME_SLOT_REF1="ts79" TIME_SLOT_REF2="ts80">
+                <ANNOTATION_VALUE>Disengaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a41"
+                CVE_REF="cveid_e08b1ccb-5bd3-4af2-8f26-173a1700afa1"
+                TIME_SLOT_REF1="ts81" TIME_SLOT_REF2="ts82">
+                <ANNOTATION_VALUE>Disengaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a42"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts83" TIME_SLOT_REF2="ts84">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a43"
+                CVE_REF="cveid_e08b1ccb-5bd3-4af2-8f26-173a1700afa1"
+                TIME_SLOT_REF1="ts85" TIME_SLOT_REF2="ts86">
+                <ANNOTATION_VALUE>Disengaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a44"
+                CVE_REF="cveid_e08b1ccb-5bd3-4af2-8f26-173a1700afa1"
+                TIME_SLOT_REF1="ts87" TIME_SLOT_REF2="ts88">
+                <ANNOTATION_VALUE>Disengaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a45"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts89" TIME_SLOT_REF2="ts90">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a46"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts91" TIME_SLOT_REF2="ts92">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a47"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts93" TIME_SLOT_REF2="ts94">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a48"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts95" TIME_SLOT_REF2="ts96">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a49"
+                CVE_REF="cveid_e08b1ccb-5bd3-4af2-8f26-173a1700afa1"
+                TIME_SLOT_REF1="ts97" TIME_SLOT_REF2="ts98">
+                <ANNOTATION_VALUE>Disengaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a50"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts99" TIME_SLOT_REF2="ts100">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a51"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts101" TIME_SLOT_REF2="ts102">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a52"
+                CVE_REF="cveid_e08b1ccb-5bd3-4af2-8f26-173a1700afa1"
+                TIME_SLOT_REF1="ts103" TIME_SLOT_REF2="ts104">
+                <ANNOTATION_VALUE>Disengaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a53"
+                CVE_REF="cveid_e08b1ccb-5bd3-4af2-8f26-173a1700afa1"
+                TIME_SLOT_REF1="ts105" TIME_SLOT_REF2="ts106">
+                <ANNOTATION_VALUE>Disengaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a54"
+                CVE_REF="cveid_e08b1ccb-5bd3-4af2-8f26-173a1700afa1"
+                TIME_SLOT_REF1="ts107" TIME_SLOT_REF2="ts108">
+                <ANNOTATION_VALUE>Disengaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a55"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts109" TIME_SLOT_REF2="ts110">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a56"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts111" TIME_SLOT_REF2="ts112">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a57"
+                CVE_REF="cveid_e08b1ccb-5bd3-4af2-8f26-173a1700afa1"
+                TIME_SLOT_REF1="ts113" TIME_SLOT_REF2="ts114">
+                <ANNOTATION_VALUE>Disengaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a58"
+                CVE_REF="cveid_e08b1ccb-5bd3-4af2-8f26-173a1700afa1"
+                TIME_SLOT_REF1="ts115" TIME_SLOT_REF2="ts116">
+                <ANNOTATION_VALUE>Disengaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a59"
+                CVE_REF="cveid_e08b1ccb-5bd3-4af2-8f26-173a1700afa1"
+                TIME_SLOT_REF1="ts117" TIME_SLOT_REF2="ts118">
+                <ANNOTATION_VALUE>Disengaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a60"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts119" TIME_SLOT_REF2="ts120">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a61"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts121" TIME_SLOT_REF2="ts122">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a62"
+                CVE_REF="cveid_e08b1ccb-5bd3-4af2-8f26-173a1700afa1"
+                TIME_SLOT_REF1="ts123" TIME_SLOT_REF2="ts124">
+                <ANNOTATION_VALUE>Disengaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a63"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts125" TIME_SLOT_REF2="ts126">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a64"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts127" TIME_SLOT_REF2="ts128">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+        <ANNOTATION>
+            <ALIGNABLE_ANNOTATION ANNOTATION_ID="a65"
+                CVE_REF="cveid_01169508-66dc-484b-a671-a1ba142f5e4d"
+                TIME_SLOT_REF1="ts129" TIME_SLOT_REF2="ts130">
+                <ANNOTATION_VALUE>Engaged</ANNOTATION_VALUE>
+            </ALIGNABLE_ANNOTATION>
+        </ANNOTATION>
+    </TIER>
+    <LINGUISTIC_TYPE GRAPHIC_REFERENCES="false"
+        LINGUISTIC_TYPE_ID="default-lt" TIME_ALIGNABLE="true"/>
+    <LINGUISTIC_TYPE CONTROLLED_VOCABULARY_REF="Engagement"
+        GRAPHIC_REFERENCES="false"
+        LINGUISTIC_TYPE_ID="engagement_tier_type" TIME_ALIGNABLE="true"/>
+    <LOCALE COUNTRY_CODE="US" LANGUAGE_CODE="en"/>
+    <LANGUAGE LANG_DEF="http://cdb.iso.org/lg/CDB-00130975-001"
+        LANG_ID="und" LANG_LABEL="undetermined (und)"/>
+    <CONSTRAINT
+        DESCRIPTION="Time subdivision of parent annotation's time interval, no time gaps allowed within this interval" STEREOTYPE="Time_Subdivision"/>
+    <CONSTRAINT
+        DESCRIPTION="Symbolic subdivision of a parent annotation. Annotations refering to the same parent are ordered" STEREOTYPE="Symbolic_Subdivision"/>
+    <CONSTRAINT DESCRIPTION="1-1 association with a parent annotation" STEREOTYPE="Symbolic_Association"/>
+    <CONSTRAINT
+        DESCRIPTION="Time alignable annotations within the parent annotation's time interval, gaps are allowed" STEREOTYPE="Included_In"/>
+    <CONTROLLED_VOCABULARY CV_ID="Engagement">
+        <DESCRIPTION LANG_REF="und"/>
+        <CV_ENTRY_ML CVE_ID="cveid_01169508-66dc-484b-a671-a1ba142f5e4d">
+            <CVE_VALUE LANG_REF="und">Engaged</CVE_VALUE>
+        </CV_ENTRY_ML>
+        <CV_ENTRY_ML CVE_ID="cveid_e08b1ccb-5bd3-4af2-8f26-173a1700afa1">
+            <CVE_VALUE LANG_REF="und">Disengaged</CVE_VALUE>
+        </CV_ENTRY_ML>
+    </CONTROLLED_VOCABULARY>
+</ANNOTATION_DOCUMENT>
