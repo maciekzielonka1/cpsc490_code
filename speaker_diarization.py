@@ -43,7 +43,7 @@ def label_wav_splits(y, wav_splits, labels, sr = 22050):
     sr: the sampling rate for the wav file
     returns - 
     diarization_dict: a dictionary specifying what each label corresponds to "Child", "Adult", "Silence"
-    labelling: a list of ("Number label", "Label start time", "Label end time", "String Label")
+    labelling: a list of [(`speaker_id`, `segment_start`, `segment_end`, `speaker_label`)]
     """
     times = [((s.start + s.stop) / 2) / sr for s in wav_splits]
     labelling = []
@@ -81,16 +81,32 @@ def label_wav_splits(y, wav_splits, labels, sr = 22050):
     return diarization_dict, labelling
 
 def show_plots(cont_embeds, labels):
+    """
+    Shows what could be helpful plots for the embeddings
+    """
+    # A matrix visualization of the embeddings. 
+    # Shows similarities between regions, where one can see that 
+    # certain regions are more similar than others
     plt.imshow(cont_embeds@cont_embeds.T)
+
     projections = create_projections(cont_embeds)
     plot_embeddings(projections, labels)
 
 def create_projections(embeds):
+    """
+    Creates projections of embeddings onto a 2-dimensional plane using UMAP
+    This could be done better, but since it is just for the sake of brief visualization, 
+    this suffices for the purposes of this project
+    """
     reducer = UMAP()
     projs = reducer.fit_transform(embeds)
     return projs
 
 def plot_embeddings(projs, labels):
+    """
+    Plots the projections of the embeddings onto a 2-Dimensional plane, 
+    and colors each `proj` based on the corresponding `label`
+    """
     _, ax = plt.subplots(figsize=(6, 6))
     colors = ['b', 'r', 'g']
     print(np.unique(labels))
@@ -101,12 +117,24 @@ def plot_embeddings(projs, labels):
     plt.show()
 
 def diarize(y, n_clusters):
+    """
+    Creates labels, diarizing an array y into n_clusters different speakers
+    y - a waveform array
+    n_clusters - the number of speakers to create a diarization for
+    returns:
+    labelling -  A list in the format of [(`speaker_id`, `segment_start_frame`, `segment_end_frame`, `speaker_label`)...]
+    """
     embeddings, wav_splits = generate_embeddings(y)
     labels = spectral_cluster_predict(embeddings, n_clusters)
     diarization_dict, labelling = label_wav_splits(y, wav_splits, labels)
     return labelling
 
 def print_diarization(labelling, sr=22050):
+    """
+    A helpful function that will print the diarization in a readable format of:
+    ` segment_start_time - segment_end_time -- speaker_label`
+    labelling - A list in the form of[(`speaker_id`, `segment_start_frame`, `segment_end_frame`, `speaker_label`)...]
+    """
     for label in labelling:
         start = int(label[1])/sr
         end = int(label[2])/sr
@@ -114,6 +142,20 @@ def print_diarization(labelling, sr=22050):
         print(convertSecs(start), "-", convertSecs(end), "--", lbl)
 
 def diarize_with_pydub(wav_file, min_silence_len=500, thresh=-40):
+    """
+    An alternative form of diarization that first uses pydub's silence module to extract all sections of silence, 
+    then only perform the embedding and clustering on the speaking portions of the audio. Although this does distinguish
+    between speakers better, it assumes that there is a silent period at least min_silence_len between each speaking portion
+
+    wav_file - the path to the desired wav_file
+    min_silence_len - the minimum length (in milliseconds) that is considered to be silence
+    thresh - the minimum threshold (in dBFS) below which segments are considered to be silent
+
+    returns:
+    labelling - A list in the form of[(`speaker_id`, `segment_start_frame`, `segment_end_frame`, `speaker_label`)...]
+    silent_segments_in_frames - a list containing the start_frame and end_frame of each silent 
+        segment as returned by pydub's `detect_silence`
+    """
     y, sr = librosa.load(wav_file)
     audio_segment = AudioSegment.from_file(wav_file, frame_rate=sr)
     silent_segments = silence.detect_silence(audio_segment, min_silence_len, thresh)
@@ -128,6 +170,15 @@ def diarize_with_pydub(wav_file, min_silence_len=500, thresh=-40):
     return labelling, silent_segments_in_frames
   
 def create_labellings_with_pydub(y, segments, labels, silence_first):
+    """
+    Creates diarization labels, accounting for the fact that the silent segments have already been determined
+    y - a waveform array
+    segments - a list of tuples, describing the start_frame and end_frame of each segment to be labelled
+    labels - the spectral labels assigned to the two speakers
+    silence_first - whether the first segment was determined to be silent. This determines whether the first label is "Silence", or "Speaker"
+    returns:
+    labelling - A list in the form of[(`speaker_id`, `segment_start_frame`, `segment_end_frame`, `speaker_label`)...]
+    """
     adult_set = False
     adult_label = labels[0]
     label_idx = 0
@@ -160,6 +211,16 @@ def create_labellings_with_pydub(y, segments, labels, silence_first):
     return labelling
 
 def embed_segments(y, segments_for_embedding):
+    """
+    Uses Resemblyzer's VoiceEncoder to create embeddings that will then be clustered. 
+    This is different from generate_embeddings, as that one automatically creates continuous embeddings and 
+    splits the array into segments. This one only generates embeddings for pre-determined segments. 
+
+    y - a waveform array
+    segments_for_embedding - a list of tuples containing the start_frame and end_frame of each segment
+    returns:
+    embeddings - an array of embeddings for each segment of y
+    """
     embeddings = []
     encoder = VoiceEncoder("cpu")
     for segment in segments_for_embedding:
@@ -170,6 +231,12 @@ def embed_segments(y, segments_for_embedding):
     return np.array(embeddings)
 
 def create_all_segments(silent_segments_in_frames, last_frame):
+    """
+    Pydub generates the segments of silence. This function creates a list of tuples filling in the gaps with the rest of the array. 
+    For example, if pydub gives silent segments of [(3, 6), (9, 12)], this function will return 
+    all_segments: [(0, 3), (3, 6), (6, 9), (9, 12), (12, last_frame)] and
+    segments_for_embedding: [(0, 3), (6, 9), (12, last_frame)] i.e., the non-silent segments we actually care about for the embeddings
+    """
     all_segments = []
     segments_for_embedding = []
     chunk_start = 0
