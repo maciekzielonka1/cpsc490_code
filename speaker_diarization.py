@@ -6,6 +6,9 @@ import matplotlib.pyplot as plt
 import math
 from umap.umap_ import UMAP
 from resemblyzer import VoiceEncoder, preprocess_wav
+from helpers import convertSecs
+from pydub import silence, AudioSegment
+from resemblyzer import VoiceEncoder
 
 def generate_embeddings(wav_array):
     """
@@ -95,9 +98,90 @@ def plot_embeddings(projs, labels):
         speaker_projs = projs[label == labels]
         marker = "o"
         ax.scatter(*speaker_projs.T, marker=marker, label=label, color=colors[i])
+    plt.show()
 
 def diarize(y, n_clusters):
     embeddings, wav_splits = generate_embeddings(y)
     labels = spectral_cluster_predict(embeddings, n_clusters)
     diarization_dict, labelling = label_wav_splits(y, wav_splits, labels)
     return labelling
+
+def print_diarization(labelling, sr=22050):
+    for label in labelling:
+        start = int(label[1])/sr
+        end = int(label[2])/sr
+        lbl = label[3]
+        print(convertSecs(start), "-", convertSecs(end), "--", lbl)
+
+def diarize_with_pydub(wav_file, min_silence_len=500, thresh=-40):
+    y, sr = librosa.load(wav_file)
+    audio_segment = AudioSegment.from_file(wav_file, frame_rate=sr)
+    silent_segments = silence.detect_silence(audio_segment, min_silence_len, thresh)
+    silent_segments_in_frames = [(int((s[0] / 1000) * sr), int((s[1] / 1000) * sr)) for s in silent_segments]
+    last_frame = len(y)
+    all_segments, segments_for_embedding = create_all_segments(silent_segments_in_frames, last_frame)
+    embeddings = embed_segments(y, segments_for_embedding)
+    labels = spectral_cluster_predict(embeddings, 2)
+    show_plots(embeddings, labels)
+    silence_first = silent_segments_in_frames[0][0] == 0
+    labelling = create_labellings_with_pydub(y, all_segments, labels, silence_first)
+    return labelling, silent_segments_in_frames
+  
+def create_labellings_with_pydub(y, segments, labels, silence_first):
+    adult_set = False
+    adult_label = labels[0]
+    label_idx = 0
+    labelling = []
+    for i, segment in enumerate(segments):
+        start = segment[0]
+        end = segment[1]
+        if silence_first:
+            if i % 2 == 0:
+                labelling.append(('2', start, end, "Silence"))
+            else:
+                label = labels[label_idx]
+                if label == adult_label:
+                    speaker = "Adult"
+                else:
+                    speaker = "Child"
+                labelling.append((label, start, end, speaker))
+                label_idx += 1
+        else:
+            if i % 2 == 1:
+                labelling.append(('2', start, end, "Silence"))
+            else:
+                label = labels[label_idx]
+                if label == adult_label:
+                    speaker = "Adult"
+                else:
+                    speaker = "Child"
+                labelling.append((label, start, end, speaker))
+                label_idx += 1
+    return labelling
+
+def embed_segments(y, segments_for_embedding):
+    embeddings = []
+    encoder = VoiceEncoder("cpu")
+    for segment in segments_for_embedding:
+        start = segment[0]
+        end = segment[1]
+        embedding = encoder.embed_utterance(y[start:end])
+        embeddings.append(embedding)
+    return np.array(embeddings)
+
+def create_all_segments(silent_segments_in_frames, last_frame):
+    all_segments = []
+    segments_for_embedding = []
+    chunk_start = 0
+    for segment in silent_segments_in_frames:
+        segment_start = segment[0]
+        segment_end = segment[1]
+        if chunk_start != segment_start:
+            all_segments.append((chunk_start, segment_start))
+            segments_for_embedding.append((chunk_start, segment_start))
+        all_segments.append(segment)
+        chunk_start = segment_end
+    if chunk_start != last_frame:
+        all_segments.append((chunk_start, last_frame))
+        segments_for_embedding.append((chunk_start, last_frame))
+    return all_segments, segments_for_embedding
