@@ -85,5 +85,6 @@ def plot_labellings(labelling):
         y.extend([lbl_num, lbl_num])
 
     plt.plot(x, y)
+    plt.title("Diarization Over Time")
     plt.show()
 
