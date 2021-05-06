@@ -114,6 +114,7 @@ def plot_embeddings(projs, labels):
         speaker_projs = projs[label == labels]
         marker = "o"
         ax.scatter(*speaker_projs.T, marker=marker, label=label, color=colors[i])
+    plt.title("Projection of Voice Embeddings")
     plt.show()
 
 def diarize(y, n_clusters):

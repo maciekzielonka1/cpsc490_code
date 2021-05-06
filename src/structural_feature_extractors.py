@@ -45,6 +45,7 @@ def find_silence_slope(silent_period_lengths, sr = 22050):
     reg = LinearRegression().fit(xs, ys)
     print(reg.coef_)
     plt.scatter(xs, ys)
+    plt.title("Duration of Silence Over Time")
     plt.show()
     return reg.coef_[0]
 
