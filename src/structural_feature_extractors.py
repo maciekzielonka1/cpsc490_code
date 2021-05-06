@@ -44,8 +44,9 @@ def extract_structural_features_from_diarized_interview(y, diarization_labels, c
         elif speaker == "Child":
             chunk = y[start_time:end_time]
             features = extract_features_from_chunk(chunk)
-            pred = clf.predict(features)
-            engagement_tracker.extend(pred)
+            probs = clf.predict_proba(features)[0]
+            pred = int(clf.predict(features)[0])
+            engagement_tracker.extend([(pred, probs[pred])])
             current_speaker = speaker
         else:
             if current_speaker == speaker:
