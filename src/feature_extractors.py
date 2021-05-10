@@ -178,7 +178,7 @@ def extract_features_from_chunk(wav_chunk):
 	chroma_df = extract_chroma_df(wav_chunk, sr)
 	tonnetz_df = extract_tonnetz_df(wav_chunk, sr)
 	features_df = pd.concat((mfccs_df, rms_df, zcr_df, spectral_df, chroma_df, f0_df, tonnetz_df), axis=1)
-	return features_df
+	return features_df.replace(np.nan, 0)
 
 def extract_features_from_csv(csv_file):
 	"""
