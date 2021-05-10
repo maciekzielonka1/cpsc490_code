@@ -69,15 +69,28 @@ def extract_chroma_df(y, sr):
 	"""
 	Extracts the Chroma Energy Normalized values of y
 	"""
-	chroma = librosa.feature.chroma_cens(y, sr)
-	chroma_mean = np.mean(chroma, axis = 1)
-	chroma_std = np.std(chroma, axis = 1)
+	chroma_cens = librosa.feature.chroma_cens(y, sr)
+	chroma_cens_mean = np.mean(chroma_cens, axis = 1)
+	chroma_cens_std = np.std(chroma_cens, axis = 1)
+
+	chroma_stft = librosa.feature.chroma_stft(y, sr)
+	chroma_stft_mean = np.mean(chroma_stft, axis = 1)
+	chroma_stft_std = np.std(chroma_stft, axis = 1)
+
+	chroma_cqt = librosa.feature.chroma_cqt(y, sr)
+	chroma_cqt_mean = np.mean(chroma_cqt, axis = 1)
+	chroma_cqt_std = np.std(chroma_cqt, axis = 1)
 
 	chroma_df = pd.DataFrame()
 	for i in range(0,12):
-		chroma_df['chroma ' + str(i) + ' mean'] = chroma_mean[i]
-		chroma_df['chroma ' + str(i) + ' std'] = chroma_std[i]
-	chroma_df.loc[0] = np.concatenate((chroma_mean, chroma_std), axis = 0)
+		chroma_df['chroma_cens ' + str(i) + ' mean'] = chroma_cens_mean[i]
+		chroma_df['chroma_cens ' + str(i) + ' std'] = chroma_cens_std[i]
+		chroma_df['chroma_stft ' + str(i) + 'mean'] = chroma_stft_mean[i]
+		chroma_df['chroma_stft ' + str(i) + 'std'] = chroma_stft_std[i]
+		chroma_df['chroma_cqt ' + str(i) + 'mean'] = chroma_cqt_mean[i]
+		chroma_df['chroma_cqt ' + str(i) + 'std'] = chroma_cqt_std[i]
+	
+	chroma_df.loc[0] = np.concatenate((chroma_cens_mean, chroma_cens_std, chroma_stft_mean, chroma_stft_std, chroma_cqt_mean, chroma_cqt_std), axis = 0)
 
 	return chroma_df
 
@@ -86,7 +99,12 @@ def extract_spectral_df(y, sr):
 	flatness = librosa.feature.spectral_flatness(y)
 	contrast = librosa.feature.spectral_contrast(y,sr=sr)
 	rolloff = librosa.feature.spectral_rolloff(y, sr=sr)
+	bandwidth = librosa.feature.spectral_bandwidth(y, sr=sr)
 	mel = librosa.feature.melspectrogram(y)
+
+	band_mean = np.mean(bandwidth)
+	band_std = np.std(bandwidth)
+	band_skew = scipy.stats.skew(bandwidth, axis=1)[0]
 
 	# spectral centroids values
 	cent_mean = np.mean(cent)
@@ -116,7 +134,8 @@ def extract_spectral_df(y, sr):
 	collist = ['cent mean','cent std','cent skew',
 				'flat mean', 'flat std', 'flat skew',
 				'rolloff mean', 'rolloff std', 'rolloff skew',
-				'mel mean', 'mel std', 'mel skew']
+				'mel mean', 'mel std', 'mel skew',
+				'band mean', 'band std', 'band skew']
 
 	for c in collist:
 		spectral_df[c] = 0
@@ -124,11 +143,23 @@ def extract_spectral_df(y, sr):
 		[cent_mean, cent_std, cent_skew], 
 		[flat_mean, flat_std, flat_skew],
 		[rolloff_mean, rolloff_std, rolloff_skew],
-		[mel_mean, mel_std, mel_skew]),
+		[mel_mean, mel_std, mel_skew],
+		[band_mean, band_std, band_skew]),
 		axis = 0)
 	spectral_df.loc[0] = data
 
 	return spectral_df
+
+def extract_tonnetz_df(y, sr):
+	tonnetz = librosa.feature.tonnetz(y, sr)
+	tonnetz_mean = np.mean(tonnetz, axis=1)
+	tonnetz_std = np.std(tonnetz, axis=1)
+	tonnetz_df = pd.DataFrame()
+	for i in range(6):
+		tonnetz_df['tonnetz ' + str(i) + ' mean'] = tonnetz_mean[i]
+		tonnetz_df['tonnetz ' + str(i) + ' std'] = tonnetz_std[i]
+	tonnetz_df.loc[0] = np.concatenate((tonnetz_mean, tonnetz_std), axis=0)
+	return tonnetz_df
 
 def extract_features_from_chunk(wav_chunk):
 	"""
@@ -142,9 +173,11 @@ def extract_features_from_chunk(wav_chunk):
 	mfccs_df = extract_mfccs_df(wav_chunk)
 	rms_df = extract_rms_df(wav_chunk)
 	zcr_df = extract_zcr_df(wav_chunk)
+	f0_df = extract_f0_df(wav_chunk)
 	spectral_df = extract_spectral_df(wav_chunk, sr)
 	chroma_df = extract_chroma_df(wav_chunk, sr)
-	features_df = pd.concat((mfccs_df, rms_df, zcr_df, spectral_df, chroma_df), axis=1)
+	tonnetz_df = extract_tonnetz_df(wav_chunk, sr)
+	features_df = pd.concat((mfccs_df, rms_df, zcr_df, spectral_df, chroma_df, f0_df, tonnetz_df), axis=1)
 	return features_df
 
 def extract_features_from_csv(csv_file):
