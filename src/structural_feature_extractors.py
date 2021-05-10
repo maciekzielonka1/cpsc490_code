@@ -67,6 +67,8 @@ def find_silence_slope(silent_period_lengths, sr = 22050):
     print(reg.coef_)
     plt.scatter(xs, ys)
     plt.title("Duration of Silence Over Time")
+    plt.ylabel("Duration of Silence (s)")
+    plt.xlabel("Time (s)")
     plt.show()
     return reg.coef_[0]
 
